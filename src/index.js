@@ -1,20 +1,23 @@
-import { angular, CoreModule } from 'angular-core';
+import {
+  angular, CoreModule
+} from 'angular-core';
 
-import appHome from './home/app.home';
-
-export const Module = angular
-  .module('app', [
-    CoreModule,
-    appHome
-  ])
-  .config(($stateProvider, $urlRouterProvider) => {
-    $stateProvider
-      .state('home', {
-        url: '/home',
-        component: 'appHome'
-      });
-
-    return $urlRouterProvider.otherwise('/home');
-  });
-
-angular.bootstrap(document.body, [Module.name]);
+export const featureModule = angular.module(
+  'testModule', [CoreModule]
+  )
+  .config([
+    '$stateProvider', '$urlRouterProvider',
+    ($stateProvider, $urlRouterProvider) => {
+      $stateProvider
+        .state('test', {
+          url: '/test',
+          component: 'testComponent'
+        });
+    }
+  ]).component(
+    'testComponent',
+    {
+      template: 'Test Module view ...'
+    }
+  )
+  .name;
