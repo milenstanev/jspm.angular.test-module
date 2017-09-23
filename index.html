@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="testModule">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
 <body ng-cloak>
 
+<p>view:</p>
 <div ui-view></div>
+
+<p>component:</p>
+<test-component></test-component>
 
 <script src="jspm_packages/system.js"></script>
 <script src="config.js"></script>
@@ -24,8 +28,8 @@
     }
   });
 
-  SystemJS.import('./src/index');
-  //SystemJS.import('./dist');
+  //SystemJS.import('./src/index');
+  SystemJS.import('./dist');
 </script>
 </body>
 </html>

@@ -13,6 +13,8 @@ export const featureModule = angular.module(
           url: '/test',
           component: 'testComponent'
         });
+
+      return $urlRouterProvider.otherwise('/test');
     }
   ]).component(
     'testComponent',
