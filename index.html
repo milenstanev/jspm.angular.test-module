@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="testModule">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
@@ -13,22 +13,14 @@
 <test-component></test-component>
 
 <script src="jspm_packages/system.js"></script>
-<script src="config.js"></script>
+<script src="system-config.js"></script>
 
 <script>
-  SystemJS.config({
-    defaultJSExtensions: true,
-    transpiler: "plugin-babel",
-    babelOptions: {
-      presets: ['babel-preset-es2017'],
-      plugins: ['babel-plugin-transform-decorators-legacy']
-    },
-    map: {
-      "systemjs-babel-build": "npm:systemjs-plugin-babel@0.0.25/systemjs-babel-browser.js"
-    }
+  SystemJS.import('milenstanev/mstanev.angular.1.x.x.core').then(() => {
+    SystemJS.import('./src/index').then(() => {
+      angular.bootstrap(document.body, ['testModule'])
+    })
   });
-
-  SystemJS.import('./src/index');
   //SystemJS.import('./dist');
 </script>
 </body>
