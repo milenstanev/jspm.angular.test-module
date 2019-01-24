@@ -25,7 +25,7 @@ const baseUrl = '.';
 /**
  * Configure builder paths
  */
-const builder = new Builder(`${baseUrl}/`, `${baseUrl}/config.js`);
+const builder = new Builder(`${baseUrl}/`, `${baseUrl}/system-config.js`);
 
 builder.config({
   meta: builderConfigMeta,
